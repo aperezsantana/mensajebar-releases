@@ -42,11 +42,15 @@ WhatsApp, Telegram or Signal, which keep no readable local database.
 | Keywords | comma-separated; any one of them is enough. Empty = any text |
 | Send from | one of your Mail.app accounts |
 | Forward to | comma-separated email recipients, per rule |
-| Forward over Messages | iMessage recipients — send it on to another contact, or to your own number |
+| Forward over Messages | phone numbers **with country code** — sent as SMS, so it reaches any phone |
 | Max age | global, in minutes — older messages are not forwarded |
 
 Sender and keywords combine with AND. A rule with neither is refused: it would forward every
 message that arrives on the Mac.
+
+**Messages destinations go out as SMS**, which reaches any phone whether or not the recipient has
+iMessage. Write numbers with their country code (`+34600112233`): without it the message is never
+delivered. Prefix a destination with `imessage:` to let Messages pick the transport instead.
 
 **Try before you save.** «Probar en seco» runs the rule against the last 300 real messages and
 shows exactly what it would have caught, without sending anything.
@@ -66,7 +70,7 @@ a timer.
 - **Full Disk Access** — the only way to read `~/Library/Messages/chat.db`. Without it the app
   shows a warning icon and forwards nothing.
 - **Automation → Mail** — to hand the message to Mail.app for sending.
-- **Automation → Messages** — only if a rule forwards over iMessage.
+- **Automation → Messages** — only if a rule forwards over Messages.
 - **Contacts** — optional: lets rules be written with a person's name, and puts that name in the
   subject instead of a phone number. Refuse it and everything still works on raw handles.
 
