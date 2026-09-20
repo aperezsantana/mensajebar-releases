@@ -88,9 +88,10 @@ account. Nothing is sent anywhere else. The forwarding history lives on your Mac
 The app updates itself from this repository. Each release body carries the `commit:` and `sha256:`
 of its build, and nothing is installed unless the downloaded DMG matches that hash.
 
-## The app is in Spanish
+## Spanish or English
 
-The interface is in Spanish. It is a personal tool, published in case it is useful to someone else.
+Pick the interface language in the rules window — *Automático* follows your Mac's. It is a personal
+tool, published in case it is useful to someone else.
 
 ## No warranty
 
