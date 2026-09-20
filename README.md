@@ -20,6 +20,7 @@ This repository holds the **downloads**. The source is private.
   archive, searchable, with the history kept in the app too.
 - **Route different senders to different people.** One rule per sender or keyword, each with its
   own recipients and its own sending account.
+- **Push it to another device or person over iMessage**, instead of — or as well as — email.
 
 ## Works with
 
@@ -37,14 +38,18 @@ WhatsApp, Telegram or Signal, which keep no readable local database.
 
 | Field | Meaning |
 |---|---|
-| Sender contains | substring of the handle, case-insensitive. Empty = any sender |
+| Sender contains | substring of the handle **or of the contact's name**, case-insensitive. Empty = any sender |
 | Keywords | comma-separated; any one of them is enough. Empty = any text |
 | Send from | one of your Mail.app accounts |
-| Forward to | comma-separated recipients, per rule |
+| Forward to | comma-separated email recipients, per rule |
+| Forward over Messages | iMessage recipients — send it on to another contact, or to your own number |
 | Max age | global, in minutes — older messages are not forwarded |
 
 Sender and keywords combine with AND. A rule with neither is refused: it would forward every
 message that arrives on the Mac.
+
+**Try before you save.** «Probar en seco» runs the rule against the last 300 real messages and
+shows exactly what it would have caught, without sending anything.
 
 **The max age matters.** If the Mac has been off for days, the app would otherwise find everything
 that matched in the meantime and mail it in one burst — a pile of already-expired codes. Anything
@@ -61,6 +66,9 @@ a timer.
 - **Full Disk Access** — the only way to read `~/Library/Messages/chat.db`. Without it the app
   shows a warning icon and forwards nothing.
 - **Automation → Mail** — to hand the message to Mail.app for sending.
+- **Automation → Messages** — only if a rule forwards over iMessage.
+- **Contacts** — optional: lets rules be written with a person's name, and puts that name in the
+  subject instead of a phone number. Refuse it and everything still works on raw handles.
 
 Nothing else. The app makes no network connection of its own except checking this page for updates.
 
